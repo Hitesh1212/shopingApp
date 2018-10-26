@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row" >
+    <div class="col-md-6 offset-md-3">
+        <h1 class="text-center"> Registration </h1>
+        <hr>
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" >
+              <div class="form-group">
+                <label for="user_name">Name:</label>
+                <input type="text"
+                      id="user_name"
+                      formControlName="userName"
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': f.userName.errors && f.userName.touched}"
+                        />
+                        <div *ngIf=" f.userName.errors" class="invalid-feedback">
+                            <div *ngIf="f.userName.errors.required">Name is required</div>
+                            <div *ngIf="f.userName.errors.minlength" >Name must contain minimum 3 charactor</div>
+                        </div>
+              </div>
+              <div class="form-group">
+                <label for="user_email">Email:</label>
+                <input type="email"
+                        id="user_email"
+                        formControlName="userEmail"
+                        class="form-control"
+                        [ngClass]="{ 'is-invalid': f.userEmail.errors && f.userEmail.touched }" />
+
+                      <div *ngIf="f.userEmail.errors" class="invalid-feedback" >
+                            <div *ngIf="f.userEmail.errors.required" >Email is required</div>
+                            <div *ngIf="f.userEmail.errors.email" >Email is not valid</div>
+                      </div>
+
+              </div>
+              <div class="form-group">
+                  <label for="user_mobile">Mobile No:</label>
+                  <input type="number"
+                          id="user_mobile"
+                          formControlName="userMobile"
+                          class="form-control"
+                          [ngClass]="{ 'is-invalid': f.userMobile.errors && f.userMobile.touched }" />
+
+                        <div *ngIf="f.userMobile.errors" class="invalid-feedback" >
+                              <div *ngIf="f.userMobile.errors.required" >Mobile no required</div>
+                              <div *ngIf="f.userMobile.errors.minlength" >Mobile no must contain 10 digit</div>
+                        </div>
+
+                </div>
+              <div class="form-group">
+                <label for="user_password">Password:</label>
+                <input type="password"
+                      id="user_password"
+                      formControlName="userPassword"
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': f.userPassword.errors && f.userPassword.touched }" />
+
+                    <div *ngIf="f.userPassword.errors" class="invalid-feedback" >
+                      <div *ngIf="f.userPassword.errors.required " >Password is required</div>
+                      <div *ngIf="f.userPassword.errors.minlength" >password must contain 8 digit</div>
+                    </div>
+
+              </div>
+              <div class="form-group">
+                  <label for="user_address">Address:</label>
+                  <textarea class="form-control"
+                  id="user_address"
+                    cols="30"
+                    rows="2"
+                    formControlName="userAddress"
+                    [ngClass]="{ 'is-invalid': f.userAddress.errors && f.userAddress.touched }"
+                    ></textarea>
+
+                    <div *ngIf="f.userAddress.errors" class="invalid-feedback" >
+                        <div *ngIf="f.userAddress.errors.required" >Address is required</div>
+                    </div>
+                </div>
+
+              <button class="btn btn-primary" type="submit" *ngIf="registrationForm.invalid" >register</button>
+        </form>
+    </div>
+  </div>
+
+</div>

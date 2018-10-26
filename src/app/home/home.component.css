@@ -1,0 +1,22 @@
+.col-md-3{
+
+padding: 10px;
+}
+.field{
+text-align: center;
+}
+a{
+  width: 100%;
+}
+a:link{
+  text-decoration: none;
+}
+.log_data{
+  background-color: rgba(98, 201, 233, 0.801);
+ padding: 10px;
+ color: white;
+ font-weight: bold;
+ letter-spacing: 2px;
+ font-size: 22px;
+}
+
